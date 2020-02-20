@@ -1,0 +1,107 @@
+
+{% extends "home.html" %}
+
+
+{% block img %}
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>NO.</th>
+        <th>IMAGE</th>
+          <th>TAGES</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for i in range(z) %}
+        <tr>
+            <td>{{ img_list[i][0] }}</td>
+            <td><img src="data:image/jpg;base64,{{ img_list[i][1] }}" class="rounded float-left" alt="..." height="200" width="200"></td>
+            <td>{{img_list[i][2]}}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+
+
+{% block img_text %}
+<div class="container">
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>NO.</th>
+        <th>IMAGE</th>
+        <th>TEXT</th>
+          <th>Sentiment Score</th>
+          <th>Entity</th>
+          <th>Key-Phrase</th>
+
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in range(x) %}
+    {% if img_text[i][3] <0.50 %}
+        <tr class="table-danger">
+            <td>{{img_text[i][1]}}</td>
+            <td><img src="data:image/jpg;base64,{{ img_text[i][0] }}" class="rounded float-left"  height="200" width="200"></td>
+            <td>{{img_text[i][2]}}</td>
+            <td>{{img_text[i][3]}}</td>
+            <td>{{img_text[i][4]}}</td>
+             <td>{{img_text[i][5]}}</td>
+             </tr>
+
+
+    {% elif  img_text[i][3] >=0.50 %}
+    <tr class="table-success">
+        <td>{{img_text[i][1]}}</td>
+            <td><img src="data:image/jpg;base64,{{ img_text[i][0] }}" class="rounded float-left" height="200" width="200"></td>
+            <td>{{img_text[i][2]}}</td>
+            <td>{{img_text[i][3]}}</td>
+        <td>{{img_text[i][4]}}</td>
+             <td>{{img_text[i][5]}}</td>
+
+        </tr>
+    {% endif %}
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block text %}
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>PAGE NO.</th>
+        <th>TEXT</th>
+          <th>Sentiment Score</th>
+          <th>Entity</th>
+          <th>Key-Phrase</th>
+
+      </tr>
+    </thead>
+    <tbody>
+
+    {% for i in range(j) %}
+        {%if text[i][1][1] !=' \n \n \n \n \n' %}
+        {%if text[i][1][1] !=' \n' %}
+            <tr>
+                <td>{{ text[i][0] }}</td>
+                <td>{{text[i][1][1]}}</td>
+                <td>{{text[i][2]}}</td>
+                <td>{{text[i][3]}}</td>
+                <td>{{text[i][4]}}</td>
+            </tr>
+        {%endif%}
+        {%endif%}
+
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

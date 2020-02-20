@@ -1,0 +1,101 @@
+
+<!doctype html>
+<head>
+    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>home</title>
+</head>
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-text">
+    <h1>Cognitive Services DEMO</h1>
+  </span>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    </div>
+    <div class="col-sm">
+
+<form method="post" action="/" enctype="multipart/form-data">
+    <dl>
+		<p>
+			<input type="file" class="form-control" name="file" autocomplete="off" required>
+		</p>
+    </dl>
+    <p>
+		<input type="submit" class="btn btn-outline-primary" value="Submit">
+	</p>
+</form>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul class=flashes>
+		{% for message in messages %}
+		  <li>{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+		</div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>
+<div>
+
+
+<body>
+
+<p>
+    <div class="container">
+  <div class="row">
+    <div class="col-sm">
+    </div>
+    <div class="col-sm">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#img" aria-expanded="false" aria-controls="img">IMAGES</button>
+          <button class="btn btn-primary" type="button"  data-toggle="collapse" data-target="#text" aria-expanded="false" aria-controls="img_text">TEXT ANALYTICS</button>
+
+  <button class="btn btn-primary" type="button"  data-toggle="collapse" data-target="#img_text" aria-expanded="false" aria-controls="img_text">VISION AND TEXT ANALYTICS</button>
+
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+</div>
+
+</p>
+    <div class="collapse multi-collapse" id="text">
+      <div class="card card-body">
+            {% block text %}
+
+          {% endblock %}
+      </div>
+    </div>
+
+    <div class="collapse multi-collapse" id="img">
+      <div class="card card-body">
+            {% block img %}
+
+          {% endblock %}
+      </div>
+    </div>
+    <div class="collapse multi-collapse" id="img_text">
+      <div class="card card-body">
+            {% block img_text %}
+
+          {% endblock %}
+      </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
